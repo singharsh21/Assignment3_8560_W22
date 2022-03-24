@@ -1,0 +1,158 @@
+<!-- Arshdeep Singh || arshdeepsingh5476@conestogac.on.ca || StudentID - 8715476 -->
+
+<%- include('layouts/header'); -%>
+<body>
+    <header>
+        <h2>PRODUCT ORDER FORM</h2>
+    </header>   
+    <form name="myform" method="post" onsubmit="return formSubmit();" action="">
+        <label>Name</label>
+        <input id="name" placeholder="First Name" type="text" name="name"><br>
+
+        <label>E-mail</label>
+        <input id="email" placeholder="email@domain.com" type="text" name="email"><br>     
+
+        <label>Phone Number</label>
+        <input id="phone" placeholder="1234567890" type="text" name="phone"><br>
+
+        <label>Address</label>
+        <input id="address" placeholder="Address" type="text" name="address"><br>
+
+        <label>Choose a Province</label>
+        <select id="province" name="province">
+            <option value="Alberta">Alberta</option>
+            <option value="BritishColumbia">British Columbia</option>
+            <option value="Manitoba">Manitoba</option>
+            <option value="NewBrunswick">New Brunswick</option>
+            <option value="NewfoundlandAndLabrador">Newfoundland and Labrador</option>
+            <option value="NorthwestTerritories">Northwest Territories</option>
+            <option value="NovaScotia">Nova Scotia</option>
+            <option value="Nunavat">Nunavat</option>
+            <option value="Ontario">Ontario</option>
+            <option value="PrinceEdwardIsland">Prince Edward Island</option>
+            <option value="Quebec">Quebec</option>
+            <option value="Saskatchewan">Saskatchewan</option>
+            <option value="Yukon">Yukon</option>
+        </select>
+
+        <label>City</label>
+        <input id="city" placeholder="City" type="text" name="city"><br>
+
+        <label>Postal Code</label>
+        <input id="postCode" placeholder="A2A 2A2" type="text" name="postCode"><br>
+
+        <p class= "subHead">Enter the Purchase Quantity</p><br>
+
+        <label>Table Lamps ($5)</label>
+        <input id="tableLamps" placeholder="0" type="text" name="tableLamps"><br>
+
+        <label>Floor Lamps ($8)</label>
+        <input id="floorLamps" placeholder="0" type="text" name="floorLamps"><br>
+
+        <label>Portable Lamps ($15)</label>
+        <input id="portableLamps" placeholder="0" type="text" name="portableLamps"><br>
+
+        <label>LED Lamps ($10)</label>
+        <input id="ledLamps" placeholder="0" type="text" name="ledLamps"><br>
+
+        <input type="submit" value="Purchase Order">
+        <p id="errors"></p>
+    </form>
+
+    <div class="formData">
+    <%
+      if(typeof(errors) != 'undefined')
+      {
+          for(var error of errors)
+          {
+          %>
+            <p class="errors"><%= error.msg %></p>
+          <%
+          }
+      }
+
+      if(typeof(total) != 'undefined')
+      {
+          %>
+          <p id="formResult">Your Receipt:</p>
+          <table id = 'table1'>
+            <tr>
+              <th>Name: </th>
+              <td><%= name %></td>
+            </tr>
+            <tr>
+              <th>Email: </th>
+              <td><%= email %></td>
+            </tr>
+            <tr>
+              <th>Phone: </th>
+              <td><%= phone %></td>
+            </tr>
+            <tr>
+              <th>Address: </th>
+              <td><%= address %></td>
+            </tr>
+            <tr>
+              <th>Province: </th>
+              <td><%= province %></td>
+            </tr>
+            <tr>
+              <th>City: </th>
+              <td><%= city %></td>
+            </tr>
+            <tr>
+              <th>Postal Code: </th>
+              <td><%= postcode %></td>
+            </tr>
+          </table>
+
+          <table id = 'table2'> 
+            <tr>
+              <th>Product Name</th>
+              <th>Quantity</th>
+              <th>Price</th>
+              <th>Total Price</th>
+            <tr>
+              <td>Table Lamps </td>
+              <td style="text-align: center;"><%= qtyTableLamps %></td>
+              <td style="text-align: right;">$<%= priceTableLamps.toFixed(2) %></td>
+              <td style="text-align: right;">$<%= tableLamps.toFixed(2) %></td>  
+            </tr>
+            <tr>
+              <td>Floor Lamps </td>
+              <td style="text-align: center;"><%= qtyFloorLamps %></td>
+              <td style="text-align: right;">$<%= priceFloorLamps.toFixed(2) %></td>
+              <td style="text-align: right;">$<%= floorLamps.toFixed(2) %></td>
+            </tr>
+            <tr>
+              <td>Portable Lamps </td>
+              <td style="text-align: center;"><%= qtyPortableLamps %></td>
+              <td style="text-align: right;">$<%= pricePortableLamps.toFixed(2) %></td>
+              <td style="text-align: right;">$<%= portableLamps.toFixed(2) %></td>
+            </tr>
+            <tr>
+              <td>LED Lamps </td>
+              <td style="text-align: center;"><%= qtyLEDLamps %></td>
+              <td style="text-align: right;">$<%= priceLEDLamps.toFixed(2) %></td>
+              <td style="text-align: right;">$<%= ledLamps.toFixed(2) %></td>
+            </tr>
+            <tr>
+              <td style="font-weight: bolder; text-align: center;" colspan="3">Subtotal: </td>
+              <td style="text-align: right; font-weight: bolder;">$<%= subTotal.toFixed(2) %></td>
+            </tr>
+            <tr>
+              <td style="font-weight: bolder; text-align: center;" colspan="3">Tax@<%= salesTaxPercentage %>% </td>
+              <td style="text-align: right; font-weight: bolder;">$<%= tax.toFixed(2) %></td>
+            </tr>
+            <tr>
+              <td style="font-weight: bolder; text-align: center;" colspan="3">GRAND TOTAL </td>
+              <td style="text-align: right; font-weight: bolder;">$<%= total.toFixed(2) %></td>
+            </tr>
+          </table>
+          <%
+        }
+    %>
+
+    </div>
+    <div class="clear"></div>
+</body>

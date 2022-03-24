@@ -1,0 +1,16 @@
+{
+  "name": "ejs-examples",
+  "version": "1.0.0",
+  "description": "EJS examples",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Arshdeep Singh",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.3",
+    "express-validator": "^6.13.0"
+  }
+}
