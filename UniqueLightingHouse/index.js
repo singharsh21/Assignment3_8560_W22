@@ -222,6 +222,7 @@ myApp.post('/',  [
     {
         var name = req.body.name;
         var email = req.body.email;
+        var apartmentNo = req.body.apartmentNo;
         var phone = req.body.phone;
         var address = req.body.address;
         var province = req.body.province;
@@ -312,6 +313,7 @@ myApp.post('/',  [
             name : name,
             email : email,
             phone : phone, 
+            apartmentNo : apartmentNo,
             address : address,
             province : province,
             city : city,
