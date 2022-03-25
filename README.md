@@ -19,7 +19,10 @@ b. npm install express
 c. npm install express-validator
 d. npm install ejs
 
-Once the node modules folder is created, then type node index.js in the terminal
+Once the node modules folder is created, make sure you are in the right folder i.e. UniqueLightingHouse otherwise type ls to show the list of files
+If not in same directory, then change the directory using cd UniqueLightingHouse
+
+Then type node index.js in the terminal window.
 
 Once you get notification that everything is done fine, then open the browser and type localhost:8080 to run the project.
 
